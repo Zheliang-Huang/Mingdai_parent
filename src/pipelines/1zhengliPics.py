@@ -8,7 +8,7 @@ from PIL import Image
 # import cv2 as cv
 from tqdm import tqdm
 
-from common.fileutils import *
+from src.common.fileutils import *
 
 
 def run(src, out):
@@ -59,7 +59,7 @@ def run(src, out):
             if os.path.isfile(topath):
                 continue
 
-            if ext == '.tif':
+            if ext.lower() in ['.tif','.tiff']:
                 #print(basename)
                 outfile = bookdir + "\\" + basename + ".jpg"
                 #img=cv.imread(file_path,-1)

@@ -1,16 +1,16 @@
 project:
   name: 明代别集数据库
-  batch_name: 20260727
+  batch_name: 20260904
 
 
 paths:
-  input_dir: H:\明代集部文献数据库\file-center\新脚本测试\20260729
-  output_dir: H:\明代集部文献数据库\file-center\新脚本测试\20260729_to
+  input_dir: \\172.31.2.10\大数据中心\33 - 明代别集数据库\5-待OCR识别+统计字数\20260904
+  output_dir: \\172.31.2.10\大数据中心\33 - 明代别集数据库\5-待OCR识别+统计字数\20260904_to
   tif_dir: \\172.31.2.10\大数据中心\33 - 明代别集数据库\36 - 明代集部文献\tif黑白图
-  json_extract_dir: H:\明代集部文献数据库\file-center\新脚本测试\20260729_to-json提取
-  charnum_file: D:\黄哲良\Python-dataHandle\XML文件处理\明代集部文献数据库\完整流程汇总2\excel\图片数量&字数表20260729test.xls
-  task_split_file: D:\黄哲良\Python-dataHandle\XML文件处理\明代集部文献数据库\完整流程汇总2\excel\拆分任务20260729.xls
-  pic_check_file: D:\黄哲良\Python-dataHandle\XML文件处理\明代集部文献数据库\完整流程汇总2\excel\图片问题汇总260729-test.xlsx
+  json_extract_dir: \\172.31.2.10\大数据中心\33 - 明代别集数据库\5-待OCR识别+统计字数\20260904_to-json提取
+  charnum_file: D:\黄哲良\Python-dataHandle\XML文件处理\明代集部文献数据库\完整流程汇总2\excel\图片数量&字数表20260904.xlsx
+  task_split_file: D:\黄哲良\Python-dataHandle\XML文件处理\明代集部文献数据库\完整流程汇总2\excel\拆分任务20260904.xlsx
+  pic_check_file: D:\黄哲良\Python-dataHandle\XML文件处理\明代集部文献数据库\完整流程汇总2\excel\图片问题汇总20260904.xlsx
   error_file: H:\江苏文库OCR\wenzhou-20250715-to_error2.txt
   state_db: ./runtime/ocr_state.db
   log_dir: ./logs

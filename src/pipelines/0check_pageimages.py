@@ -1,9 +1,9 @@
 import os
 
 from tqdm import tqdm
-from common.config import *
-from common.excel_utils import *
-from common.fileutils import *
+from src.common.config import *
+from src.common.excel_utils import *
+from src.common.fileutils import *
 
 
 def check_if_miss(check1, check2, check3):

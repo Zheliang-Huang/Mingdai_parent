@@ -4,7 +4,7 @@ import os
 
 from PIL import Image
 from tqdm import tqdm
-from common.fileutils import *
+from src.common.fileutils import *
 
 
 def run(errorpath):

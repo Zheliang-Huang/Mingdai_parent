@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable, Dict, List, Tuple
 
-from common.task_state import COMPLETED, FAILED, RUNNING, TaskStateDB
+from src.common.task_state import COMPLETED, FAILED, RUNNING, TaskStateDB
 
 
 @dataclass(frozen=True)

@@ -1,8 +1,8 @@
 import json
 import os
 import platform
-from common.fileutils import *
-from common.excel_utils import *
+from src.common.fileutils import *
+from src.common.excel_utils import *
 
 
 def parse_OCR_json(json_format):
@@ -202,7 +202,11 @@ def run(src, charnum_file):
         full_path_each = os.path.join(source, each_book)
         if os.path.isdir(full_path_each):
             pic_list = []
-            traverse_dir(full_path_each, pic_list, ['.png', '.tiff', '.jpg', '.bmp', '.jpeg'])
+            page_dir = os.path.join(
+                full_path_each,
+                "pageimages"
+            )
+            traverse_dir(page_dir, pic_list, ['.png', '.tiff', '.jpg', '.bmp', '.jpeg'])
             for pic in pic_list:
                 if 'pageimages' in pic:
                     num += 1

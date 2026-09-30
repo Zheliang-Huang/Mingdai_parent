@@ -1,5 +1,5 @@
 import os
-from common.fileutils import *
+from src.common.fileutils import *
 
 
 def run(output_dir, json_extract_dir):
@@ -14,7 +14,11 @@ def run(output_dir, json_extract_dir):
         book_dir = os.path.join(pic_dir, book)
         if os.path.isdir(book_dir):
             pic_list = []
-            traverse_dir(book_dir, pic_list, ['.jpg', '.tif', '.jpeg'])
+            page_dir = os.path.join(
+                book_dir,
+                "pageimages"
+            )
+            traverse_dir(page_dir, pic_list, ['.jpg', '.tif', '.jpeg'])
             for pic in pic_list:
                 picname = os.path.splitext(os.path.basename(pic))[0]
                 if picname in json_names:

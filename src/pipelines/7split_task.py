@@ -1,10 +1,9 @@
 import json
-import os
-import platform
 import random
-from common.fileutils import *
-from common.excel_utils import *
-import xlwt
+import os
+
+from src.common.excel_utils import *
+from src.common.fileutils import *
 
 
 def parse_OCR_json(json_format, red_list):
@@ -257,6 +256,7 @@ def run(src, json_extract_dir, charnum_file, task_file):
         if os.path.isdir(full_path_each):
             json_list = []
             traverse_dir(full_path_each, json_list, ['.json'])
+            json_path_dic = {os.path.basename(path):path for path in json_list}
             char_num = 0
             red_num = 0
             json_task_list = []
@@ -293,16 +293,31 @@ def run(src, json_extract_dir, charnum_file, task_file):
                         else:
                             json_task_list.append(os.path.basename(json_path))
 
-                except:
-                    continue
+
+                except Exception as exc:
+
+                    raise RuntimeError(
+
+                        f"处理JSON失败：{json_path}，"
+
+                        f"错误原因：{exc}"
+
+                    ) from exc
             if len(json_task_list) != 0:
-                idx = 0
                 if len(if_confident_list) != 0:
-                    while idx < 3:
-                        json_select = if_confident_list[random.randrange(0, len(if_confident_list))]
+                    sample_count = min(
+                        3,
+                        len(if_confident_list)
+                    )
+
+                    selected_jsons = random.sample(
+                        if_confident_list,
+                        sample_count
+                    )
+                    for json_select in selected_jsons:
+                        json_path = json_path_dic[json_select]
                         copy_file(json_path, os.path.join(json_extract_dir, json_select))
                         json_output.append(json_select)
-                        idx += 1
                 excel_list.append([zsk_num, ','.join(json_task_list), char_num, red_num, ','.join(json_output)])
             num += 1
     create_excel(['任务标题', '处理范围', '任务量(千字)', '标红数量', '置信度json'], excel_list, output)
