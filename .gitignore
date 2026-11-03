@@ -1,0 +1,32 @@
+# Python 环境与缓存
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# 编辑器配置
+.idea/
+.vscode/
+
+# 本机配置与凭据
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# 运行日志与批次状态（运行时自动生成）
+/src/logs/
+/src/runtime/
+*.log
+
+# OCR 批量处理产物
+/test/*-json提取/
+
+# Office 临时文件和系统文件
+~$*
+Thumbs.db
+.DS_Store
